@@ -5,6 +5,7 @@ function Login() {
   return (
     <Container>
       <Form>
+        <Input type="username" name="username" placeholder="username" />
         <Input type="email" name="email" placeholder="email" />
         <Input type="password" name="password" placeholder="password" />
         <Button>Login</Button>
@@ -19,16 +20,15 @@ const Container = styled.div`
   position: relative;
   height: calc(100vh - 70px);
   display: flex;
-  align-item: top;
   justify-content: center;
   width: 100%;
+  flex-direction: column;
 `;
 
 const Form = styled.form`
   margin: 0 auto;
   width: 100%;
-  max-width: 414px;
-  padding: 1.3rem;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   position: relative;
