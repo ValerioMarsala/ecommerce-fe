@@ -1,14 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
 
 function Login() {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [token, setToken] = useState("");
+
+  const handleUsername = (e) => {
+    setUsername(e.target.value);
+  };
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const request = JSON.stringify({ username, password });
+    console.log(request);
+    axios
+      .post("http://192.168.10.79:8080/authenticate", { request })
+      .then((res) => {
+        console.log(res);
+        console.log(res.data);
+      });
+  };
   return (
     <Container>
-      <Form>
-        <Input type="username" name="username" placeholder="username" />
-        <Input type="email" name="email" placeholder="email" />
-        <Input type="password" name="password" placeholder="password" />
-        <Button>Login</Button>
+      <Form onSubmit={handleSubmit} autoComplete="off">
+        <Input
+          type="username"
+          name="username"
+          placeholder="Username"
+          autoComplete="none"
+          onChange={handleUsername}
+          value={username}
+        />
+        {/* <Input
+          type="email"
+          name="email"
+          placeholder="Email"
+          onChange={handleEmail}
+          value={email}
+        /> */}
+        <Input
+          type="password"
+          name="password"
+          placeholder="Password"
+          onChange={handlePassword}
+          value={password}
+        />
+        <Button type="submit">Login</Button>
       </Form>
     </Container>
   );
