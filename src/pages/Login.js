@@ -4,29 +4,29 @@ import axios from "axios";
 
 function Login() {
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");
+
+  const url = "http://192.168.10.79:8080/authenticate";
 
   const handleUsername = (e) => {
     setUsername(e.target.value);
   };
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
+
   const handlePassword = (e) => {
     setPassword(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const request = JSON.stringify({ username, password });
-    console.log(request);
+
     axios
-      .post("http://192.168.10.79:8080/authenticate", { request })
+      .post(url, { username, password })
       .then((res) => {
-        console.log(res);
-        console.log(res.data);
+        setToken(res.data);
+      })
+      .catch((error) => {
+        alert("ERRORE");
       });
   };
   return (
@@ -40,13 +40,6 @@ function Login() {
           onChange={handleUsername}
           value={username}
         />
-        {/* <Input
-          type="email"
-          name="email"
-          placeholder="Email"
-          onChange={handleEmail}
-          value={email}
-        /> */}
         <Input
           type="password"
           name="password"

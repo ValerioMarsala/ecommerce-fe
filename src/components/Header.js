@@ -2,41 +2,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import styled from "styled-components";
-// import {selectUserName, selectUserPhoto, setUserLogin, setSignOut} from '../features/user/userSlice'
-// import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from "react-router-dom";
-// import { auth, provider } from '../firebase'
 
 function Header() {
-  //   const dispatch = useDispatch();
   const navigate = useNavigate();
-  //   const userName = useSelector(selectUserName);
-  //   const userPhoto = useSelector(selectUserPhoto);
-
-  //   useEffect(() => {
-  //     auth.onAuthStateChanged(async (user) => {
-  //       if(user){
-  //         dispatch(setUserLogin({
-  //           name: user.displayName,
-  //           email: user.email,
-  //           photo: user.photoURL
-  //         }))
-  //         navigate("/")
-  //       }
-  //     })
-  //   },[])
 
   const signIn = () => {
     navigate("/login");
   };
-
-  //   const signOut = () => {
-  //     auth.signOut()
-  //     .then(() =>{
-  //       dispatch(setSignOut());
-  //       navigate("/login");
-  //     })
-  //   }
 
   return (
     <Nav>
