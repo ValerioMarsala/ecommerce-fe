@@ -6,38 +6,71 @@ import axios from "axios";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState("");
-
-  const url = "http://localhost:8080/authenticate";
+  const [email, setEmail] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
 
   const handleUsername = (e) => {
     setUsername(e.target.value);
+  };
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
   };
 
   const handlePassword = (e) => {
     setPassword(e.target.value);
   };
 
+  const handleFirstname = (e) => {
+    setFirstname(e.target.value);
+  };
+
+  const handleLastname = (e) => {
+    setLastname(e.target.value);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios
-      .post(url, { username, password })
-      .then((res) => {
-        setToken(res.data);
-      })
-      .catch((error) => {
-        alert("ERRORE");
-      });
+    // axios
+    //   .post(url, { email, username, password, firstname, lastname})
+    //   .then((res) => {
+    //     setToken(res.data);
+    //   })
+    //   .catch((error) => {
+    //     alert("ERRORE");
+    //   });
   };
   return (
     <Container>
       <Form onSubmit={handleSubmit} autoComplete="off">
         <Input
+          type="email"
+          name="email"
+          placeholder="Email"
+          autoComplete="none"
+          onChange={handleEmail}
+          value={email}
+        />
+        <Input
+          type="text"
+          name="firstname"
+          placeholder="First Name"
+          onChange={handleFirstname}
+          value={firstname}
+        />
+        <Input
+          type="text"
+          name="lastname"
+          placeholder="Last Name"
+          onChange={handleLastname}
+          value={lastname}
+        />
+        <Input
           type="username"
           name="username"
           placeholder="Username"
-          autoComplete="none"
           onChange={handleUsername}
           value={username}
         />
@@ -48,15 +81,9 @@ function Login() {
           onChange={handlePassword}
           value={password}
         />
-        <Button type="submit">Sign In</Button>
-        <BottomContainer>
-          <Register>
-            <Link to="/register">Register</Link>
-          </Register>
-          <ForgotPass>
-            <Link to="/forgotpassword">Forgot your password?</Link>
-          </ForgotPass>
-        </BottomContainer>
+        <Button type="submit">
+          <Link to="/">Register</Link>
+        </Button>
       </Form>
     </Container>
   );
@@ -113,21 +140,10 @@ const Button = styled.button`
   cursor: pointer;
   margin-top: 0.6rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
-`;
-
-const BottomContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-`;
-
-const Register = styled.button`
-  margin: 6px;
+  text-decoration: none;
 
   a {
     text-decoration: none;
-    color: black;
+    color: white;
   }
 `;
-
-const ForgotPass = styled(Register)``;
