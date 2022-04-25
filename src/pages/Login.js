@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
 
@@ -7,6 +7,7 @@ function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");
+  const navigate = useNavigate();
 
   const url = "http://localhost:8080/authenticate";
 
@@ -25,6 +26,8 @@ function Login() {
       .post(url, { username, password })
       .then((res) => {
         setToken(res.data);
+        console.log(token);
+        navigate("/");
       })
       .catch((error) => {
         alert("ERRORE");

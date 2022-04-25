@@ -10,6 +10,8 @@ function Login() {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
 
+  const url = "http://localhost:8080/authenticate";
+
   const handleUsername = (e) => {
     setUsername(e.target.value);
   };
@@ -32,15 +34,12 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // axios
-    //   .post(url, { email, username, password, firstname, lastname})
-    //   .then((res) => {
-    //     setToken(res.data);
-    //   })
-    //   .catch((error) => {
-    //     alert("ERRORE");
-    //   });
+    axios
+      .put(url, { email, username, password, firstname, lastname })
+      .then((res) => console.log(res))
+      .catch((error) => {
+        alert("ERRORE");
+      });
   };
   return (
     <Container>
