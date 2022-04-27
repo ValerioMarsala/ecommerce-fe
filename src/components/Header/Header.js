@@ -25,9 +25,13 @@ function Header() {
     bottom: 10
   }
 
-  return (
+  const navHeight = {
+    height: 68
+  }
 
-    <div className='w3-top'>
+  return (
+    <div>
+    <div className='w3-top' style={navHeight}>
       <div className='w3-bar w3-black w3-card w3-row'>
         <div className='w3-bar-item w3-padding-large w3-col l3 m2 s2' style={{display:"flex"}}>
           <a href="#" style={{margin: "auto"}}>
@@ -39,6 +43,8 @@ function Header() {
         <div className='w3-bar-item w3-padding-large w3-col l1 m2 s2'><HamburgerButton /></div>
       </div>
       <div className='w3-button w3-padding-large w3-circle w3-black' style={imgCart}><Cart /></div>
+    </div>
+    <div style={navHeight}></div>
     </div>
 
     /*
