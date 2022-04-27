@@ -3,6 +3,9 @@
 import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import Cart from './Cart'
+import HamburgerButton from './HamburgerButton'
+import SearchBar from './SearchBar'
 
 function Header() {
   const navigate = useNavigate();
@@ -12,18 +15,35 @@ function Header() {
   };
 
   return (
-    <Nav>
-      <Logo src="/images/logo.png" />
-      <NavMenu>
-        <a>
-          <input />
-          <span>SEARCH</span>
-        </a>
-      </NavMenu>
-      <LoginBtnContainer>
-        <LoginButton onClick={signIn}>Login</LoginButton>
-      </LoginBtnContainer>
-    </Nav>
+
+    <div className='w3-top'>
+      <div className='w3-bar w3-black w3-card w3-row'>
+        <div className='w3-bar-item w3-button w3-padding-large w3-col l4 m2 s2'>
+          <img src="/images/logo-low.png" alt="Amazzon" className="w3-hide-small w3-hide-medium" />
+          <img src="/images/logo-small-low.png" alt="Amazzon" className="w3-hide-large" />
+        </div>
+
+        <div className='w3-bar-item w3-padding-large w3-left  w3-col l6 m6 s8'><SearchBar /></div>
+        <div className='w3-bar-item w3-button w3-padding-large w3-col l1 m2 w3-hide-small'><Cart /></div>
+        <div className='w3-bar-item w3-button w3-padding-large w3-col l1 m2 s2'><HamburgerButton /></div>
+      </div>
+    </div>
+
+    /*
+        <Nav>
+          <Logo src="/images/logo.png" />
+          <NavMenu>
+            <a>
+              <input />
+              <span>SEARCH</span>
+            </a>
+          </NavMenu>
+          <LoginBtnContainer>
+            <LoginButton onClick={signIn}>Login</LoginButton>
+          </LoginBtnContainer>
+        </Nav>
+    
+        */
   );
 }
 

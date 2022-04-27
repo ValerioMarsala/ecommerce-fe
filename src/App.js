@@ -1,6 +1,7 @@
 import "./App.css";
+import './w3.css';
 import React from "react";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
