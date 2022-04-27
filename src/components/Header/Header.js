@@ -33,16 +33,17 @@ function Header() {
     <div>
     <div className='w3-top' style={navHeight}>
       <div className='w3-bar w3-black w3-card w3-row'>
-        <div className='w3-bar-item w3-padding-large w3-col l3 m2 s2' style={{display:"flex"}}>
+        <div className='w3-bar-item w3-padding w3-col l3 m2 s2' style={{display:"flex"}}>
           <a href="#" style={{margin: "auto"}}>
             <img src="/images/logo-low.png" alt="Amazzon" className="w3-hide-small w3-hide-medium" style={imgStyle} />
             <img src="/images/logo-small-low.png" alt="Amazzon" className="w3-hide-large" style={imgStyle} />
           </a>
         </div>
-        <div className='w3-bar-item w3-padding-large w3-left  w3-col l8 m8 s8'><SearchBar /></div>
-        <div className='w3-bar-item w3-padding-large w3-col l1 m2 s2'><HamburgerButton /></div>
+        <div className='w3-bar-item w3-padding w3-col l6 m6 s6'><SearchBar /></div>
+        <div className='w3-bar-item w3-padding w3-col l2 m2 s2'><a href="/login" className='w3-button w3-white w3-round-large' style={{margin: "auto"}}>LogIn</a></div>
+        <div className='w3-bar-item w3-padding w3-col l1 m2 s2'><HamburgerButton /></div>
       </div>
-      <div className='w3-button w3-padding-large w3-circle w3-black' style={imgCart}><Cart /></div>
+      <div className='w3-button w3-padding w3-circle w3-black' style={imgCart}><Cart /></div>
     </div>
     <div style={navHeight}></div>
     </div>
