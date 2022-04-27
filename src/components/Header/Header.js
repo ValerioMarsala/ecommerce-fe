@@ -1,18 +1,20 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+//import styled from "styled-components";
+//import { useNavigate } from "react-router-dom";
 import Cart from './Cart'
 import HamburgerButton from './HamburgerButton'
 import SearchBar from './SearchBar'
 
 function Header() {
+  /*
   const navigate = useNavigate();
 
   const signIn = () => {
     navigate("/login");
   };
+  */
 
   const imgStyle = {
     height: "100%",
@@ -34,13 +36,13 @@ function Header() {
     <div className='w3-top' style={navHeight}>
       <div className='w3-bar w3-black w3-card w3-row'>
         <div className='w3-bar-item w3-padding w3-col l3 m2 s2' style={{display:"flex"}}>
-          <a href="#" style={{margin: "auto"}}>
+          <a href="/" style={{margin: "auto"}}>
             <img src="/images/logo-low.png" alt="Amazzon" className="w3-hide-small w3-hide-medium" style={imgStyle} />
             <img src="/images/logo-small-low.png" alt="Amazzon" className="w3-hide-large" style={imgStyle} />
           </a>
         </div>
         <div className='w3-bar-item w3-padding w3-col l6 m6 s6'><SearchBar /></div>
-        <div className='w3-bar-item w3-padding w3-col l2 m2 s2'><a href="/login" className='w3-button w3-white w3-round-large' style={{margin: "auto"}}>LogIn</a></div>
+        <div className='w3-bar-item w3-padding w3-col l2 m2 s2' style={{display:"flex"}}><a href="/login" className='w3-button w3-white w3-round-large' style={{margin: "auto"}}>LogIn</a></div>
         <div className='w3-bar-item w3-padding w3-col l1 m2 s2'><HamburgerButton /></div>
       </div>
       <div className='w3-button w3-padding w3-circle w3-black' style={imgCart}><Cart /></div>
@@ -67,7 +69,7 @@ function Header() {
 }
 
 export default Header;
-
+/*
 const Nav = styled.nav`
   height: 70px;
   background: #090b13;
@@ -137,3 +139,4 @@ const LoginBtnContainer = styled.div`
   flex: 1;
   justify-content: flex-end;
 `;
+*/

@@ -10,7 +10,7 @@ function SearchBar() {
                 <option value="3">Option 3</option>
             </select>
             <input className="w3-input" type="text" placeholder="Cerca...." style={{ width: "70%", display: "flex", textDecoration: "none", border: "1px black solid", borderRadius: "0 25px 25px 0" }}></input>
-            <a href="" style={{ width: "10%", textAlign: "center" }}>
+            <a href="/" style={{ width: "10%", textAlign: "center" }}>
                 <i className="fa fa-search" style={{ fontSize: 24, display: "inline-block", verticalAlign: "middle", lineHeight: 1.5 }}></i>
             </a>
         </div>
