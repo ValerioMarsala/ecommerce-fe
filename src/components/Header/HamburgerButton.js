@@ -14,10 +14,14 @@ function HamburgerButton() {
     }
 
     return (
-        <div>
+
+        <div style={{display:"flex"}}>
             <button
                 className="w3-button w3-large"
-                onClick={ham_open}>&#9776;
+                style={{margino:"auto"}}
+                onClick={ham_open}
+            >
+                <i className="fa fa-reorder" style={{ fontSize: 24 }}></i>
             </button>
 
             <nav

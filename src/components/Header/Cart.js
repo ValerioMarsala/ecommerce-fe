@@ -2,7 +2,7 @@ import React from 'react'
 
 function Cart() {
   return (
-    <div>Cart</div>
+    <a href="#"><i className="fa fa-shopping-cart" style={{fontSize:36}}></i></a>
   )
 }
 

@@ -14,19 +14,31 @@ function Header() {
     navigate("/login");
   };
 
+  const imgStyle = {
+    height: "100%",
+    maxHeight: 43,
+  }
+
+  const imgCart = {
+    position: "fixed",
+    right: 10,
+    bottom: 10
+  }
+
   return (
 
     <div className='w3-top'>
       <div className='w3-bar w3-black w3-card w3-row'>
-        <div className='w3-bar-item w3-button w3-padding-large w3-col l4 m2 s2'>
-          <img src="/images/logo-low.png" alt="Amazzon" className="w3-hide-small w3-hide-medium" />
-          <img src="/images/logo-small-low.png" alt="Amazzon" className="w3-hide-large" />
+        <div className='w3-bar-item w3-padding-large w3-col l3 m2 s2' style={{display:"flex"}}>
+          <a href="#" style={{margin: "auto"}}>
+            <img src="/images/logo-low.png" alt="Amazzon" className="w3-hide-small w3-hide-medium" style={imgStyle} />
+            <img src="/images/logo-small-low.png" alt="Amazzon" className="w3-hide-large" style={imgStyle} />
+          </a>
         </div>
-
-        <div className='w3-bar-item w3-padding-large w3-left  w3-col l6 m6 s8'><SearchBar /></div>
-        <div className='w3-bar-item w3-button w3-padding-large w3-col l1 m2 w3-hide-small'><Cart /></div>
-        <div className='w3-bar-item w3-button w3-padding-large w3-col l1 m2 s2'><HamburgerButton /></div>
+        <div className='w3-bar-item w3-padding-large w3-left  w3-col l8 m8 s8'><SearchBar /></div>
+        <div className='w3-bar-item w3-padding-large w3-col l1 m2 s2'><HamburgerButton /></div>
       </div>
+      <div className='w3-button w3-padding-large w3-circle w3-black' style={imgCart}><Cart /></div>
     </div>
 
     /*

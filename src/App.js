@@ -1,5 +1,6 @@
 import "./App.css";
 import './w3.css';
+import './font/font-awesome.min.css';
 import React from "react";
 import Header from "./components/Header/Header";
 import Login from "./pages/Login";

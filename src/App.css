@@ -1,3 +1,10 @@
 .App {
   position: relative;
 }
+
+
+@media (max-width: 992px) {
+  #hamburgerNav.w3-sidebar {
+    display: block;
+  }
+}
