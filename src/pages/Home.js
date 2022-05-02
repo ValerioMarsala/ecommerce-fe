@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Cart from "../components/Cart";
 import CardProductList from "./CardProductList";
+import useProducts from '../hooks/useProducts';
 
 function Home() {
   return (
