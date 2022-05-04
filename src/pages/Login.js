@@ -1,15 +1,32 @@
-import React, { useState } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
+import AuthContext from "../context/AuthProvider";
 
 function Login() {
+  const { setAuth } = useContext(AuthContext);
+  const userRef = useRef();
+  const errRef = useRef();
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [errMsg, setErrMsg] = useState("");
   const navigate = useNavigate();
 
-  const url = "http://localhost:8080/authenticate";
+  const url = "http://192.168.10.79:8080/authenticate";
+
+  useEffect(() => {
+    setAuth({ username, token });
+  }, [token, setAuth, username]);
+
+  useEffect(() => {
+    if (success) {
+      navigate("/");
+    }
+  }, [success, navigate]);
 
   const handleUsername = (e) => {
     setUsername(e.target.value);
@@ -25,43 +42,69 @@ function Login() {
     axios
       .post(url, { username, password })
       .then((res) => {
-        setToken(res.data);
-        console.log(token);
-        navigate("/");
+        setToken(res.data.token);
+        setSuccess(true);
       })
       .catch((error) => {
-        alert("ERRORE");
+        if (!error?.response) {
+          setErrMsg("No server response");
+        } else if (error.response?.status === 400) {
+          setErrMsg("Missing username or password");
+        } else if (error.response.status === 401) {
+          setErrMsg("Unauthorized");
+        } else {
+          setErrMsg("Login failed");
+        }
+        errRef.current.focus();
       });
   };
   return (
-    <Container>
-      <Form onSubmit={handleSubmit} autoComplete="off">
-        <Input
-          type="username"
-          name="username"
-          placeholder="Username"
-          autoComplete="none"
-          onChange={handleUsername}
-          value={username}
-        />
-        <Input
-          type="password"
-          name="password"
-          placeholder="Password"
-          onChange={handlePassword}
-          value={password}
-        />
-        <Button type="submit">Sign In</Button>
-        <BottomContainer>
-          <Register>
-            <Link to="/register">Register</Link>
-          </Register>
-          <ForgotPass>
-            <Link to="/forgotpassword">Forgot your password?</Link>
-          </ForgotPass>
-        </BottomContainer>
-      </Form>
-    </Container>
+    <>
+      {success ? (
+        <Link to="/">Go Home</Link>
+      ) : (
+        <Container>
+          <p
+            ref={errRef}
+            className={errMsg ? "errmsg" : "offscreen"}
+            aria-live="assertive"
+          >
+            {errMsg}
+          </p>
+          <Form onSubmit={handleSubmit} autoComplete="off">
+            <Input
+              type="text"
+              name="username"
+              id="username"
+              ref={userRef}
+              value={username}
+              placeholder="Username"
+              onChange={handleUsername}
+              required
+            />
+            <Input
+              type="password"
+              id="password"
+              autoComplete="off"
+              name="password"
+              placeholder="Password"
+              onChange={handlePassword}
+              value={password}
+              required
+            />
+            <Button type="submit">Sign In</Button>
+            <BottomContainer>
+              <Register>
+                <Link to="/register">Register</Link>
+              </Register>
+              <ForgotPass>
+                <Link to="/forgotpassword">Forgot your password?</Link>
+              </ForgotPass>
+            </BottomContainer>
+          </Form>
+        </Container>
+      )}
+    </>
   );
 }
 
