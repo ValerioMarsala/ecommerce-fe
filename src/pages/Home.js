@@ -1,10 +1,10 @@
 import React from "react";
 import Cart from "../components/Cart";
 import ProductCard from "../components/ProductCard";
-import useProducts from '../hooks/getProducts';
+import GetProducts from '../hooks/GetProducts';
 
 function Home() {
-  const { products } = useProducts()
+  const { products } = GetProducts()
   console.log(products);
 
   return (

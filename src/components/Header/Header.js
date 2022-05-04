@@ -1,8 +1,4 @@
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useContext } from "react";
-//import styled from "styled-components";
-//import { useNavigate } from "react-router-dom";
 import Cart from "./Cart";
 import HamburgerButton from "./HamburgerButton";
 import SearchBar from "./SearchBar";
@@ -10,13 +6,6 @@ import SearchBar from "./SearchBar";
 import AuthContext from "../../context/AuthProvider";
 function Header() {
   const { auth } = useContext(AuthContext);
-  /*
-  const navigate = useNavigate();
-
-  const signIn = () => {
-    navigate("/login");
-  };
-  */
 
   const imgStyle = {
     height: "100%",
@@ -98,94 +87,7 @@ function Header() {
       </div>
       <div style={navHeight}></div>
     </div>
-
-    /*
-        <Nav>
-          <Logo src="/images/logo.png" />
-          <NavMenu>
-            <a>
-              <input />
-              <span>SEARCH</span>
-            </a>
-          </NavMenu>
-          <LoginBtnContainer>
-            <LoginButton onClick={signIn}>Login</LoginButton>
-          </LoginBtnContainer>
-        </Nav>
-    
-        */
   );
 }
 
 export default Header;
-/*
-const Nav = styled.nav`
-  height: 70px;
-  background: #090b13;
-  display: flex;
-  align-items: center;
-  padding: 0 36px;
-  overflow-x: hidden;
-`;
-
-const Logo = styled.img`
-  width: 80px;
-`;
-const NavMenu = styled.div`
-  display: flex;
-  flex: 1;
-  margin-left: 25px;
-  align-items: center;
-  color: white;
-  a {
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    cursor: pointer;
-
-    input {
-      height: 30px;
-      width: 600px;
-      margin-right: 10px;
-    }
-
-    img {
-      height: 20px;
-    }
-
-    span {
-      font-size: 13px;
-      letter-spacing: 1.42px;
-      position: relative;
-    }
-  }
-`;
-// const UserImg = styled.img`
-//   width: 40px;
-//   height: 40px;
-//   border-radius: 50%;
-//   cursor: pointer;
-// `;
-const LoginButton = styled.div`
-  border: 1px solid #f9f9f9;
-  padding: 8px 16px;
-  border-radius: 4px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  background-color: rgba(0, 0, 0, 0.6);
-  transition: all 0.2s ease 0s;
-  cursor: pointer;
-  color: white;
-
-  &:hover {
-    background: #f9f9f9;
-    color: #000;
-    border-color: transparent;
-  }
-`;
-const LoginBtnContainer = styled.div`
-  display: flex;
-  flex: 1;
-  justify-content: flex-end;
-`;
-*/

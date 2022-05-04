@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { url } from '../config/url.js';
 
-const useProducts = () => {
+function GetProducts() {
 	const [products, setProducts] = useState([]);
 	const [filter] = useState(""); 
 	
@@ -20,4 +20,4 @@ const useProducts = () => {
 	return {products}
 }
 
-export default useProducts
+export default GetProducts
