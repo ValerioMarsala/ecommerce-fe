@@ -2,22 +2,27 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { url } from '../config/url.js';
 
-function GetProducts() {
+function GetProducts(props) {
 	const [products, setProducts] = useState([]);
-	const [filter] = useState(""); 
 	
 	useEffect(
-		() => {
-			const loadProducts = async () => {
-				const response = await axios.get(url.products);	
-				if(response.status === 200){
-				  setProducts(response.data);
-				}  
-			}		
-			loadProducts();
-		}, []
+		(props) => {
+			const loadProducts = async (props) => {
+				var response = null;
+				if (props && props.p) {
+					response = await axios.get(url.products + "/?product_id=" + props.p);
+					console.log(response);
+				}
+				else response = await axios.get(url.products);
+
+				if (response && response.status === 200) {
+					setProducts(response.data);
+				}
+			}
+			loadProducts(props);
+		}, [props]
 	)
-	return {products}
+	return { products }
 }
 
 export default GetProducts

@@ -1,16 +1,16 @@
 import React from 'react'
 
 function ProductCard(props) {
-  const p = props.product
-
+  const p = props.product;
+  
   return (
-    <div className="w3-col l3 m4 s6" style={{}}>
+    <div className="w3-col l3 m4 s6">
       <div className="w3-card w3-center w3-margin" style={{ height: 300 }}>
         <div style={{ height: "20%", display:"flex"  }}>
           <h3 style={{ margin:"auto" }}>{p.title}</h3>
         </div>
 
-        <div style={{ height: "60%", display:"flex", padding: 8}}>
+        <div style={{ height: "50%", display:"flex", padding: 8}}>
           <img
             src={p.image}
             className="w3-round"
@@ -18,9 +18,11 @@ function ProductCard(props) {
             alt={p.title}
           />
         </div>
-
-        <div style={{ height: "20%", display:"flex"  }}>
+        <div style={{ height: "10%", display:"flex"  }}>
           <p style={{margin:"auto"}}>Prezzo: {p.price} <i className="fa fa-euro" ></i></p>
+        </div>
+        <div style={{ height: "20%", display:"flex"  }}>
+          <a href={"/?p=" + p.id} className="w3-button w3-orange" style={{margin:"auto"}}>Visualizza</a>
         </div>
       </div>
     </div>
